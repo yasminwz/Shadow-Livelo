@@ -78,7 +78,7 @@ public class ClienteController {
 
 
     @PutMapping("/{id}")
-    @ApiOperation(value = "Atualizar dados de um cliente por id")
+    @ApiOperation(value = "Atualizar dados de um cliente por id válido")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Requisição bem sucedida" ),
             @ApiResponse(code = 400, message = "Requisição não atendida, dados incorretos ou falta informações"),
