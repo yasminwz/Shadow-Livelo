@@ -21,8 +21,6 @@
 * :green_circle:	Spring Boot
 * :green_circle:	PostgreSQL
 * :green_circle:	Swagger
-* :green_circle:	SonarQube
-* :green_circle:	Junit
 
 ## Link para teste do swagger :exclamation:
 :link:	http://localhost:8080/swagger-ui.html
