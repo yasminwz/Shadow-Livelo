@@ -28,8 +28,6 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    //TODO get all, getbynome and byid, remove cliente, put name cliente,cadastrar
-
     @PostMapping
     @ApiOperation(value = "Realiza o cadastro de clientes")
     @ApiResponses(value = {
@@ -67,20 +65,20 @@ public class ClienteController {
         return ResponseEntity.ok(clienteDtoResponse);
     }
 
-    @GetMapping("/{nome}")
+    @GetMapping("/nome/{nome}")
     @ApiOperation(value = "Exibe cliente através de um nome válido informado na URL")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Requisição bem sucedida"),
             @ApiResponse(code = 400, message = "Requisição não atendida, dados incorretos ou falta informações"),
             @ApiResponse(code = 404, message = "Resultado de pesquisa não encontrado")})
-    public ResponseEntity<ClienteDtoResponse> findById(@Valid @PathVariable String nome){
+    public ResponseEntity<ClienteDtoResponse> findByNome(@Valid @PathVariable String nome){
         ClienteDtoResponse clienteDtoResponse = clienteService.findByNome(nome);
         return ResponseEntity.ok(clienteDtoResponse);
     }
 
 
     @PutMapping("/{id}")
-    @ApiOperation(value = "Atualizar dados de uma sala de reunião")
+    @ApiOperation(value = "Atualizar dados de um cliente por id")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Requisição bem sucedida" ),
             @ApiResponse(code = 400, message = "Requisição não atendida, dados incorretos ou falta informações"),
@@ -92,7 +90,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "Excluir uma cliente")
+    @ApiOperation(value = "Exclui uma cliente")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Requisição bem sucedida"),
             @ApiResponse(code = 404, message = "Resultado de pesquisa não encontrado"),
