@@ -32,6 +32,7 @@
 * Nome do Banco: shadowlivelo
 * :lock:	Username: postgres
 * :key:	Password: compasso
+* :warning:	Obs: Está setado como Update, então deve-se criar o banco no Postgre manualmente
 
 ## Meus contatos
 * :link: LinkedIn: https://www.linkedin.com/in/yasminwzimermann/
