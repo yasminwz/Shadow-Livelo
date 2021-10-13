@@ -12,7 +12,7 @@ import javax.persistence.*;
 @ToString
 @Table(name = "tb_cidade")
 public class Cidade {
-
+//Comentando a cidade
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
