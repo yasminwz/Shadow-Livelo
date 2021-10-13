@@ -1,11 +1,10 @@
-package com.compasso.shadowLivelo.entity;
+package com.compasso.shadowlivelo.domain.model;
 
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 
 @Entity
@@ -31,7 +30,8 @@ public class Cliente {
     @Column(name = "idade_Cliente")
     private int idade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private List<Cidade> cidadeCliente;
+    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.PERSIST})
+    @JoinColumn(name = "cliente_id")
+    private Cidade cidade;
 
 }

@@ -1,4 +1,4 @@
-package com.compasso.shadowLivelo.entity;
+package com.compasso.shadowlivelo.domain.model;
 
 import lombok.*;
 
@@ -12,7 +12,6 @@ import javax.persistence.*;
 @ToString
 @Table(name = "tb_cidade")
 public class Cidade {
-//Comentando a cidade
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,5 +19,6 @@ public class Cidade {
     private String nome;
     @Column(name = "estado_Cidade")
     private String estado;
+
 
 }

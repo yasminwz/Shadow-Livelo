@@ -1,6 +1,6 @@
-package com.compasso.shadowLivelo.repository;
+package com.compasso.shadowlivelo.repository;
 
-import com.compasso.shadowLivelo.entity.Cidade;
+import com.compasso.shadowlivelo.domain.model.Cidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

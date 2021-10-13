@@ -1,4 +1,4 @@
-package com.compasso.shadowLivelo.modelmapper;
+package com.compasso.shadowlivelo.modelmapper;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

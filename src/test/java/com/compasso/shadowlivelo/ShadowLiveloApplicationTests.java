@@ -1,4 +1,4 @@
-package com.compasso.shadowLivelo;
+package com.compasso.shadowlivelo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
