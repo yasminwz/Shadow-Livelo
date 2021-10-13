@@ -11,7 +11,6 @@
 * :red_circle:	Altera o registro do Cliente
 * :red_circle:	Cadastra Cidades
 * :red_circle:	Consulta Cidades pelo nome, estado e id
-* :red_circle:	Deleta o registro da cidade
 
 ## 💻 Stacks Ultilizadas
 
