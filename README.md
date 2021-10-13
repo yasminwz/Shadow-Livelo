@@ -37,7 +37,4 @@
 * :link: LinkedIn: https://www.linkedin.com/in/yasminwzimermann/
 * :email: Email :yasmin.wichinievski@compasso.com.br
 
-git remote set-url origin https://github.com/yasminwz/Shadow-Livelo.git
 
-
-https://github.com/yasminwz/Shadow-Livelo.git
