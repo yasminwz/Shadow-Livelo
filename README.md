@@ -30,8 +30,8 @@
 ## Conexão com o banco de dados
 * Banco de dados: PostgreSQL
 * Nome do Banco: shadowlivelo
-* :lock:	Username: admin
-* :key:	Password: Shad0wLivel0
+* :lock:	Username: postgres
+* :key:	Password: compasso
 
 ## Meus contatos
 * :link: LinkedIn: https://www.linkedin.com/in/yasminwzimermann/
