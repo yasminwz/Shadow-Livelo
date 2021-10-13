@@ -30,8 +30,9 @@
 ## Conexão com o banco de dados
 * Banco de dados: PostgreSQL
 * Nome do Banco: shadowlivelo
-* :lock:	Username: admin
-* :key:	Password: Shad0wLivel0
+* :lock:	Username: postgres
+* :key:	Password: compasso
+* :warning:	Obs: Está setado como Update, então deve-se criar o banco no Postgre manualmente
 
 ## Meus contatos
 * :link: LinkedIn: https://www.linkedin.com/in/yasminwzimermann/
