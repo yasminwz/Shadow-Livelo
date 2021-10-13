@@ -11,7 +11,6 @@
 * :red_circle:	Altera o registro do Cliente
 * :red_circle:	Cadastra Cidades
 * :red_circle:	Consulta Cidades pelo nome, estado e id
-* :red_circle:	Deleta o registro da cidade
 
 ## 💻 Stacks Ultilizadas
 
@@ -21,8 +20,6 @@
 * :green_circle:	Spring Boot
 * :green_circle:	PostgreSQL
 * :green_circle:	Swagger
-* :green_circle:	SonarQube
-* :green_circle:	Junit
 
 ## Link para teste do swagger :exclamation:
 :link:	http://localhost:8080/swagger-ui.html
