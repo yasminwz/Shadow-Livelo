@@ -2,16 +2,6 @@
 
 * Este projeto foi criado destinado a uma avaliação do projeto "Desenvolve aí!" criado pela Livelo
 
-## :rocket:	Funcionalidades da API
-
-* :red_circle:  Cadastra Clientes
-* :red_circle:  Consulta todos os CLientes
-* :red_circle:	Consulta todos os CLientes por nome e id
-* :red_circle:	Deleta o registro do Cliente
-* :red_circle:	Altera o registro do Cliente
-* :red_circle:	Cadastra Cidades
-* :red_circle:	Consulta Cidades pelo nome, estado e id
-
 ## 💻 Stacks Ultilizadas
 
   Estas são as Stacks ultilizadas nesse projeto
