@@ -40,7 +40,7 @@ public class CityController {
         return ResponseEntity.created(uri).body(cityDtoResponse);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/{name}")
     @ApiOperation(value = "Display city by name")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Successful request"),
@@ -53,7 +53,7 @@ public class CityController {
         return ResponseEntity.ok(cityDtoResponse);
     }
 
-    @GetMapping("/state/{state}")
+    @GetMapping("{state}")
     @ApiOperation(value = "Display city by state")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Successful request"),

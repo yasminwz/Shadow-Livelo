@@ -35,7 +35,6 @@ public class Client {
     private String gender;
 
     @Column(name = "birthDate_client")
-    @NotBlank(message = "You cannot enter an empty or null birth date")
     @Past(message = "You cannot be born one day ahead of the current day")
     private LocalDate birthDate;
 
