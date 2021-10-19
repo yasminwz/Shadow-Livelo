@@ -52,7 +52,7 @@ public class ClientController {
 		return ResponseEntity.ok(clientDtoResponse);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/id/{id}")
 	@ApiOperation(value = "Displays client that has a valid Id entered in the URL")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Successful request"),
@@ -65,7 +65,7 @@ public class ClientController {
 		return ResponseEntity.ok(clientDtoResponse);
 	}
 
-	@GetMapping("/{name}")
+	@GetMapping("/name/{name}")
 	@ApiOperation(value = "Displays client that has a valid name entered in the URL")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Successful request"),
@@ -73,11 +73,11 @@ public class ClientController {
 			@ApiResponse(code = 404, message = "Search result not found"),
 			@ApiResponse(code = 500, message = "Internal Server Error")
 	})
-	public ResponseEntity<List<ClientDtoResponse>> findByNome(@PathVariable String name) {
+	public ResponseEntity<List<ClientDtoResponse>> findByName(@PathVariable String name) {
 		return ResponseEntity.ok(clientService.findByName(name));
 	}
 
-	@PutMapping("/{id}")
+	@PutMapping("/put/{id}")
 	@ApiOperation(value = "Update a customer's data by id")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Successful request"),
@@ -89,7 +89,7 @@ public class ClientController {
 		return ResponseEntity.ok(clientDtoResponse);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	@ApiOperation(value = "Delete client")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Successful request"),

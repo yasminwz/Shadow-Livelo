@@ -25,6 +25,8 @@ public class ClientToClientDto implements Converter<Client, ClientDtoResponse> {
                 .build();
     }
 
+
+
     private int getAgeForBirthDate(LocalDate birthDate) {
         return Period.between(birthDate, LocalDate.now()).getYears();
     }

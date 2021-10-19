@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Service
@@ -27,15 +29,31 @@ public class CityService {
 
 	}
 
-	public CityDtoResponse findByName(String name) {
-		City city = cityRepository.findByName(name);
-		return modelMapper.map(city, CityDtoResponse.class);
+	public List<CityDtoResponse> findByName(String name) {
+
+		List<CityDtoResponse> result = new ArrayList<>();
+
+		List<City> findByName = cityRepository.findByName(name);
+
+		if(!findByName.isEmpty()){
+			findByName.forEach(r -> result.add(modelMapper.map(r,CityDtoResponse.class)));
+		}
+
+		return result;
 
 	}
 
-	public CityDtoResponse findByState(String state) {
-		City city = cityRepository.findByState(state);
-		return modelMapper.map(city, CityDtoResponse.class);
+	public List<CityDtoResponse> findByState(String state) {
+
+		List<CityDtoResponse> result = new ArrayList<>();
+
+		List<City> findByState = cityRepository.findByState(state);
+
+		if(!findByState.isEmpty()){
+			findByState.forEach(r -> result.add(modelMapper.map(r, CityDtoResponse.class)));
+		}
+
+		return result;
 
 	}
 

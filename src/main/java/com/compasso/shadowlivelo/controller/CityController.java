@@ -15,6 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @Api(tags = {"City"}, value = "City controller")
 @CrossOrigin(origins = "*")
@@ -40,7 +41,7 @@ public class CityController {
         return ResponseEntity.created(uri).body(cityDtoResponse);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     @ApiOperation(value = "Display city by name")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Successful request"),
@@ -48,12 +49,11 @@ public class CityController {
             @ApiResponse(code = 404, message = "Search result not found"),
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
-    public ResponseEntity<CityDtoResponse> findByName(@PathVariable String name){
-        CityDtoResponse cityDtoResponse = cityService.findByName(name);
-        return ResponseEntity.ok(cityDtoResponse);
+    public ResponseEntity<List<CityDtoResponse>> findByName(@PathVariable String name){
+        return ResponseEntity.ok(cityService.findByName(name));
     }
 
-    @GetMapping("{state}")
+    @GetMapping("/state/{state}")
     @ApiOperation(value = "Display city by state")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Successful request"),
@@ -61,9 +61,8 @@ public class CityController {
             @ApiResponse(code = 404, message = "Search result not found"),
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
-    public ResponseEntity<CityDtoResponse> findByState(@PathVariable String state){
-        CityDtoResponse cityDtoResponse = cityService.findByState(state);
-        return ResponseEntity.ok(cityDtoResponse);
+    public ResponseEntity<List<CityDtoResponse>> findByState(@PathVariable String state){
+        return ResponseEntity.ok(cityService.findByState(state));
     }
 
 
