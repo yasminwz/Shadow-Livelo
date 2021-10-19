@@ -14,9 +14,8 @@ public class ClientDtoUpdate {
 
     private String name;
     private String lastName;
-    private char sex;
+    private String gender;
     private LocalDate birthDate;
-    private int age;
 
     private City city;
 

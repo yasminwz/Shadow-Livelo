@@ -1,15 +1,14 @@
 package com.compasso.shadowlivelo.service;
 
-import javax.transaction.Transactional;
-
+import com.compasso.shadowlivelo.domain.dto.CityDtoRequest;
+import com.compasso.shadowlivelo.domain.dto.CityDtoResponse;
 import com.compasso.shadowlivelo.domain.model.City;
+import com.compasso.shadowlivelo.repository.CityRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.compasso.shadowlivelo.domain.dto.CityDtoRequest;
-import com.compasso.shadowlivelo.domain.dto.CityDtoResponse;
-import com.compasso.shadowlivelo.repository.CityRepository;
+import javax.transaction.Transactional;
 
 @Transactional
 @Service

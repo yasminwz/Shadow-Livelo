@@ -9,9 +9,11 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @Api(tags = {"City"}, value = "City controller")
@@ -29,7 +31,7 @@ public class CityController {
             @ApiResponse(code = 201, message = "Successful request"),
             @ApiResponse(code = 400, message = "Missed Request: Incorrect data or missing information"),
             @ApiResponse(code = 500, message = "Internal Server Error")})
-    public ResponseEntity<CityDtoResponse> create(@RequestBody CityDtoRequest cityDtoRequest) {
+    public ResponseEntity<CityDtoResponse> create(@Valid @RequestBody CityDtoRequest cityDtoRequest, BindingResult bindingResult) {
         CityDtoResponse cityDtoResponse = cityService.create(cityDtoRequest);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("{id}")

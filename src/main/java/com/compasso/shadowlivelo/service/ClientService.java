@@ -1,23 +1,21 @@
 package com.compasso.shadowlivelo.service;
 
+import com.compasso.shadowlivelo.advice.exception.ResourceNotFoundException;
+import com.compasso.shadowlivelo.domain.dto.ClientDtoRequest;
+import com.compasso.shadowlivelo.domain.dto.ClientDtoResponse;
+import com.compasso.shadowlivelo.domain.dto.ClientDtoUpdate;
+import com.compasso.shadowlivelo.domain.model.Client;
+import com.compasso.shadowlivelo.repository.ClientRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
-
-import com.compasso.shadowlivelo.domain.model.Client;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.compasso.shadowlivelo.domain.dto.ClientDtoRequest;
-import com.compasso.shadowlivelo.domain.dto.ClientDtoResponse;
-import com.compasso.shadowlivelo.domain.dto.ClientDtoUpdate;
-import com.compasso.shadowlivelo.advice.exception.ResourceNotFoundException;
-import com.compasso.shadowlivelo.repository.ClientRepository;
 
 @Transactional
 @Service
@@ -28,19 +26,17 @@ public class ClientService {
 
 	@Autowired
 	private ModelMapper modelMapper;
-	@Autowired
-	private AgeValidation ageValidation;
+
 
 	public ClientDtoResponse create(ClientDtoRequest clientDtoRequest) {
 		Client client = modelMapper.map(clientDtoRequest, Client.class);
-		ageValidation.validate(client);
 		this.clientRepository.save(client);
 		return modelMapper.map(client, ClientDtoResponse.class);
 	}
 
 	public List<ClientDtoResponse> findAll() {
 		List<Client> client = clientRepository.findAll();
-		return client.stream().map(r -> modelMapper.map(r, ClientDtoResponse.class)).collect(Collectors.toList());
+		return client.stream().map(c -> modelMapper.map(c, ClientDtoResponse.class)).collect(Collectors.toList());
 	}
 
 	public ClientDtoResponse findById(Long id) {
@@ -68,8 +64,7 @@ public class ClientService {
 		client.setName(clientDtoUpdate.getName());
 		client.setLastName(clientDtoUpdate.getLastName());
 		client.setBirthDate(clientDtoUpdate.getBirthDate());
-		client.setAge(clientDtoUpdate.getAge());
-		client.setSex(clientDtoUpdate.getSex());
+		client.setGender(clientDtoUpdate.getGender());
 		client.setCity(clientDtoUpdate.getCity());
 		this.clientRepository.save(client);
 		return modelMapper.map(client, ClientDtoResponse.class);

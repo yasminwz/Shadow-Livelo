@@ -1,13 +1,17 @@
 package com.compasso.shadowlivelo.domain.dto;
 
 import com.compasso.shadowlivelo.domain.model.City;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ClientDtoResponse {
 
     private Long id;
@@ -15,7 +19,7 @@ public class ClientDtoResponse {
     private String lastName;
     private LocalDate birthDate;
     private int age;
-    private  char sex;
+    private String gender;
 
     private City city;
 
