@@ -13,6 +13,8 @@ import java.time.LocalDate;
 @Builder
 public class ClientDtoResponse {
 
+
+
     private Long id;
     private String name;
     private String lastName;

@@ -28,6 +28,9 @@ public class Client {
     @NotBlank(message = "You cannot enter an empty or null name")
     private String name;
 
+    @Column(name = "age_client")
+    private int age;
+
     @Column(name = "lastName_client")
     @NotBlank(message = "You cannot enter an empty or null last Name")
     private String lastName;
@@ -45,5 +48,7 @@ public class Client {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "city_id")
     private City city;
+
+
 
 }

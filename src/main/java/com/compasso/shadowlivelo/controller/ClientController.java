@@ -24,7 +24,6 @@ import java.util.Map;
 @RestController
 public class ClientController {
 
-
 	@Autowired
 	private ClientService clientService;
 

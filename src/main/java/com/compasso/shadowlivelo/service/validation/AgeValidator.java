@@ -2,6 +2,7 @@ package com.compasso.shadowlivelo.service.validation;
 
 import com.compasso.shadowlivelo.advice.exception.DateException;
 import com.compasso.shadowlivelo.domain.model.Client;
+import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,10 +20,12 @@ public class AgeValidator {
 
         }
         LocalDate birthDate = client.getBirthDate();
-        getAgeForBirthDate(birthDate);
+        var age = getAgeForBirthDate(birthDate);
+        client.setAge(age);
     }
          private int getAgeForBirthDate(LocalDate birthDate) {
-        return Period.between(birthDate, LocalDate.now()).getYears();
+        var age =  Period.between(birthDate, LocalDate.now()).getYears();
+        return age;
     }
 
 }

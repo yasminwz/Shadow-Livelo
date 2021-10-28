@@ -1,34 +1,28 @@
 package com.compasso.shadowlivelo.service;
 
-import com.compasso.shadowlivelo.domain.dto.CityDtoResponse;
-import com.compasso.shadowlivelo.domain.model.City;
-import com.compasso.shadowlivelo.modelmapper.ModelMapperConfig;
 import com.compasso.shadowlivelo.repository.CityRepository;
 import com.compasso.shadowlivelo.util.UtilTestCity;
 import lombok.var;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
 @ExtendWith(MockitoExtension.class)
-@ContextConfiguration(classes = {CityService.class, ModelMapper.class, ModelMapperConfig.class})
 public class CityServiceTest {
 
-    @InjectMocks
+    @Autowired
     private CityService cityService;
 
-    @Mock
+    @MockBean
     private CityRepository cityRepository;
-
-    @Mock
-    private ModelMapper modelMapper;
 
     @Test
     void shouldCreateCity(){
@@ -36,16 +30,13 @@ public class CityServiceTest {
         var cityDtoRequest = UtilTestCity.newCityDtoRequest();
         var cityDtoResponse = UtilTestCity.newCityDtoResponse();
 
-        when(modelMapper.map(cityDtoRequest, City.class)).thenReturn(city);
         when(cityRepository.save(city)).thenReturn(city);
-        when(modelMapper.map(city, CityDtoResponse.class)).thenReturn(cityDtoResponse);
 
         var saveCityRequest = cityService.create(cityDtoRequest);
 
         assertNotNull(saveCityRequest);
 
-        verify(cityRepository, times(1)).save(city);
-        verify(modelMapper, times(1)).map(city, CityDtoResponse.class);
+        verify(cityRepository, times(1)).save(Mockito.any());
 
 
     }

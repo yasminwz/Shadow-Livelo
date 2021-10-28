@@ -10,7 +10,9 @@ public class CityDtoResponse {
     private Long id;
     private String name;
     private String state;
+    private int age;
 
+    private CityDtoResponse cityDtoResponse;
 
 }
 

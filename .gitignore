@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+/index_SORT_BY_METHOD_DESC.html
+/index_SORT_BY_METHOD.html
+/index_SORT_BY_NAME_DESC.html
+/index_SORT_BY_LINE.html
+/index_SORT_BY_LINE_DESC.html
+/index_SORT_BY_CLASS_DESC.html
+/index_SORT_BY_CLASS.html
+/index_SORT_BY_BLOCK_DESC.html
+/index_SORT_BY_BLOCK.html
+/index.html

@@ -1,40 +1,29 @@
 package com.compasso.shadowlivelo.service;
 
 
-import com.compasso.shadowlivelo.domain.dto.ClientDtoResponse;
-import com.compasso.shadowlivelo.domain.model.Client;
-import com.compasso.shadowlivelo.modelmapper.ModelMapperConfig;
 import com.compasso.shadowlivelo.repository.ClientRepository;
-import com.compasso.shadowlivelo.service.validation.AgeValidator;
 import com.compasso.shadowlivelo.util.UtilTestClient;
 import lombok.var;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
 @ExtendWith(MockitoExtension.class)
-@ContextConfiguration(classes = {ClientService.class, ModelMapper.class, ModelMapperConfig.class, AgeValidator.class})
 public class ClientServiceTest {
 
-    @InjectMocks
+    @Autowired
     private ClientService clientService;
 
-    @Mock
+    @MockBean
     private ClientRepository clientRepository;
-
-    @Mock
-    private ModelMapper modelMapper;
-
-    @Mock
-    private AgeValidator ageValidator;
-
 
     @Test
     void shouldCreateClient() {
@@ -42,18 +31,15 @@ public class ClientServiceTest {
         var clientDtoRequest = UtilTestClient.newClientDtoRequest();
         var clientDtoResponse = UtilTestClient.newClientDtoResponse();
 
-        when(modelMapper.map(clientDtoRequest, Client.class)).thenReturn(client);
         when(clientRepository.save(client)).thenReturn(client);
-        when(modelMapper.map(client, ClientDtoResponse.class)).thenReturn(clientDtoResponse);
 
         var saveClientRequest = clientService.create(clientDtoRequest);
 
         assertNotNull(saveClientRequest);
 
-        verify(clientRepository, times(1)).save(client);
-        verify(modelMapper, times(1)).map(client, ClientDtoResponse.class);
-
+        verify(clientRepository, times(1)).save(Mockito.any());
     }
+
 
     @Test
     void shouldFindAllClient() {
@@ -77,11 +63,9 @@ public class ClientServiceTest {
 
 
         when(clientRepository.findById(1L)).thenReturn(findById);
-        when(modelMapper.map(client, ClientDtoResponse.class)).thenReturn(clientDtoResponse);
         var findByIdClientRequest = clientService.findById(1L);
 
         verify(clientRepository, times(1)).findById(1L);
-        verify(modelMapper, times(1)).map(client, ClientDtoResponse.class);
 
     }
 
@@ -106,15 +90,11 @@ public class ClientServiceTest {
         var clientOptional = UtilTestClient.newOptionalClient();
 
         when(clientRepository.findById(1L)).thenReturn(clientOptional);
-        doNothing().when(modelMapper).map(clientUpdate, client);
         when(clientRepository.save(client)).thenReturn(client);
-        when(modelMapper.map(client, ClientDtoResponse.class)).thenReturn(clientResponse);
 
         clientService.update(1L, clientUpdate);
 
         verify(clientRepository, times(1)).save(client);
-        verify(modelMapper, times(1)).map(clientUpdate, client);
-        verify(modelMapper, times(1)).map(client, ClientDtoResponse.class);
 
     }
 

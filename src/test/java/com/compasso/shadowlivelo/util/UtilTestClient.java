@@ -1,7 +1,8 @@
 package com.compasso.shadowlivelo.util;
 
-import com.compasso.shadowlivelo.domain.dto.*;
-import com.compasso.shadowlivelo.domain.model.City;
+import com.compasso.shadowlivelo.domain.dto.ClientDtoRequest;
+import com.compasso.shadowlivelo.domain.dto.ClientDtoResponse;
+import com.compasso.shadowlivelo.domain.dto.ClientDtoUpdate;
 import com.compasso.shadowlivelo.domain.model.Client;
 import lombok.var;
 
@@ -28,7 +29,7 @@ public class UtilTestClient {
         client.setLastName(newClientDtoRequest().getLastName());
         client.setBirthDate(newClientDtoRequest().getBirthDate());
         client.setGender(newClientDtoRequest().getGender());
-        client.setCity(newCity());
+        client.setCity(UtilTestCity.newCity());
         return client;
     }
 
@@ -38,7 +39,7 @@ public class UtilTestClient {
         clientDtoRequest.setLastName("Wichinievski");
         clientDtoRequest.setBirthDate(LocalDate.parse("2003-03-19"));
         clientDtoRequest.setGender("F");
-        clientDtoRequest.setCityDtoRequest(newCityDtoRequest());
+        clientDtoRequest.setCityDtoRequest(UtilTestCity.newCityDtoRequest());
         return clientDtoRequest;
     }
 
@@ -49,7 +50,7 @@ public class UtilTestClient {
         clientDtoResponse.setLastName(newClientDtoRequest().getLastName());
         clientDtoResponse.setBirthDate(newClientDtoRequest().getBirthDate());
         clientDtoResponse.setGender(newClientDtoRequest().getGender());
-        clientDtoResponse.setCityDtoResponse(newCityDtoResponse());
+        clientDtoResponse.setCityDtoResponse(UtilTestCity.newCityDtoResponse());
         clientDtoResponse.setId(newClient().getId());
         return clientDtoResponse;
     }
@@ -61,35 +62,11 @@ public class UtilTestClient {
         clientUpdate.setLastName("Wichinievski");
         clientUpdate.setBirthDate(LocalDate.parse("2003-03-19"));
         clientUpdate.setGender("F");
-        clientUpdate.setCityDtoRequest(newCityDtoRequest());
+        clientUpdate.setCityDtoRequest(UtilTestCity.newCityDtoRequest());
         return clientUpdate;
 
     }
 
-
-    public static City newCity() {
-        var city = new City();
-        city.setId(1L);
-        city.setName(newCityDtoRequest().getName());
-        city.setState(newCityDtoRequest().getState());
-        return city;
-    }
-
-    public static CityDtoRequest newCityDtoRequest() {
-        var cityDtoRequest = new CityDtoRequest();
-        cityDtoRequest.setName("Curitiba");
-        cityDtoRequest.setState("PR");
-        return cityDtoRequest;
-    }
-
-    public static CityDtoResponse newCityDtoResponse(){
-        var cityDtoResponse = new CityDtoResponse();
-        cityDtoResponse.setId(newCity().getId());
-        cityDtoResponse.setName(newCityDtoRequest().getName());
-        cityDtoResponse.setState(newCityDtoRequest().getState());
-        return cityDtoResponse;
-
-    }
 
     public static List<Client> newClientList(){
         List<Client> clientList = new ArrayList<>();
