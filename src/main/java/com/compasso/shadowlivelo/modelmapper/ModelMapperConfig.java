@@ -1,6 +1,5 @@
 package com.compasso.shadowlivelo.modelmapper;
 
-import com.compasso.shadowlivelo.converter.ClientToClientDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +12,6 @@ public class ModelMapperConfig {
         modelMapper.getConfiguration()
                 .setFieldMatchingEnabled(true)
                 .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
-        modelMapper.addConverter(new ClientToClientDto());
         return modelMapper;
     }
 }

@@ -1,6 +1,5 @@
 package com.compasso.shadowlivelo.domain.dto;
 
-import com.compasso.shadowlivelo.domain.model.City;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +20,7 @@ public class ClientDtoResponse {
     private int age;
     private String gender;
 
-    private City city;
+    private CityDtoResponse cityDtoResponse;
 
 
 

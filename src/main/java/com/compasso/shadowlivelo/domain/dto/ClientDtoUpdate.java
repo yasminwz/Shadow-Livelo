@@ -1,8 +1,9 @@
 package com.compasso.shadowlivelo.domain.dto;
 
 
-import com.compasso.shadowlivelo.domain.model.City;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
@@ -17,6 +18,6 @@ public class ClientDtoUpdate {
     private String gender;
     private LocalDate birthDate;
 
-    private City city;
+    private CityDtoRequest cityDtoRequest;
 
 }

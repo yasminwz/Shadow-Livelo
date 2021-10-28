@@ -6,6 +6,7 @@ import com.compasso.shadowlivelo.domain.dto.ClientDtoResponse;
 import com.compasso.shadowlivelo.domain.dto.ClientDtoUpdate;
 import com.compasso.shadowlivelo.domain.model.Client;
 import com.compasso.shadowlivelo.repository.ClientRepository;
+import com.compasso.shadowlivelo.service.validation.AgeValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +28,13 @@ public class ClientService {
 	@Autowired
 	private ModelMapper modelMapper;
 
+	@Autowired
+	private AgeValidator ageValidator;
+
 
 	public ClientDtoResponse create(ClientDtoRequest clientDtoRequest) {
 		Client client = modelMapper.map(clientDtoRequest, Client.class);
+		ageValidator.validate(client);
 		this.clientRepository.save(client);
 		return modelMapper.map(client, ClientDtoResponse.class);
 	}
@@ -61,11 +66,7 @@ public class ClientService {
 	public ClientDtoResponse update(Long id, ClientDtoUpdate clientDtoUpdate) {
 		Client client = clientRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Client not found:: " + id));
-		client.setName(clientDtoUpdate.getName());
-		client.setLastName(clientDtoUpdate.getLastName());
-		client.setBirthDate(clientDtoUpdate.getBirthDate());
-		client.setGender(clientDtoUpdate.getGender());
-		client.setCity(clientDtoUpdate.getCity());
+		modelMapper.map(clientDtoUpdate, client);
 		this.clientRepository.save(client);
 		return modelMapper.map(client, ClientDtoResponse.class);
 
