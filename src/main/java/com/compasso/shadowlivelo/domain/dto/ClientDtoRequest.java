@@ -16,6 +16,6 @@ public class ClientDtoRequest {
     private LocalDate birthDate;
     private String gender;
 
-    private CityDtoRequest cityDtoRequest;
+    private CityDtoRequest city;
 
 }

@@ -18,6 +18,6 @@ public class ClientDtoUpdate {
     private String gender;
     private LocalDate birthDate;
 
-    private CityDtoRequest cityDtoRequest;
+    private CityDtoRequest city;
 
 }

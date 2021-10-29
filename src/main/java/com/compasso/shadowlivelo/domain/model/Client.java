@@ -49,6 +49,4 @@ public class Client {
     @JoinColumn(name = "city_id")
     private City city;
 
-
-
 }

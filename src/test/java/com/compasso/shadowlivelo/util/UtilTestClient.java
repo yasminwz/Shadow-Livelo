@@ -39,7 +39,7 @@ public class UtilTestClient {
         clientDtoRequest.setLastName("Wichinievski");
         clientDtoRequest.setBirthDate(LocalDate.parse("2003-03-19"));
         clientDtoRequest.setGender("F");
-        clientDtoRequest.setCityDtoRequest(UtilTestCity.newCityDtoRequest());
+        clientDtoRequest.setCity(UtilTestCity.newCityDtoRequest());
         return clientDtoRequest;
     }
 
@@ -50,7 +50,7 @@ public class UtilTestClient {
         clientDtoResponse.setLastName(newClientDtoRequest().getLastName());
         clientDtoResponse.setBirthDate(newClientDtoRequest().getBirthDate());
         clientDtoResponse.setGender(newClientDtoRequest().getGender());
-        clientDtoResponse.setCityDtoResponse(UtilTestCity.newCityDtoResponse());
+        clientDtoResponse.setCity(UtilTestCity.newCityDtoResponse());
         clientDtoResponse.setId(newClient().getId());
         return clientDtoResponse;
     }
@@ -62,7 +62,7 @@ public class UtilTestClient {
         clientUpdate.setLastName("Wichinievski");
         clientUpdate.setBirthDate(LocalDate.parse("2003-03-19"));
         clientUpdate.setGender("F");
-        clientUpdate.setCityDtoRequest(UtilTestCity.newCityDtoRequest());
+        clientUpdate.setCity(UtilTestCity.newCityDtoRequest());
         return clientUpdate;
 
     }

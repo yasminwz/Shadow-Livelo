@@ -12,7 +12,4 @@ public class CityDtoRequest {
     private String name;
     private String state;
 
-    private CityDtoRequest cityDtoRequest;
-
-
 }
